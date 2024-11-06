@@ -2,15 +2,23 @@
 Una API de películas creada con Java y Spring Boot 3 para demostrar habilidades en el desarrollo de aplicaciones web y 
 gestión de seguridad con JWT. Esta API permite realizar operaciones CRUD en una base de datos de películas y cuenta con 
 autenticación y autorización mediante Spring Security 6.
+
+## 📋 Índice  
+
+1. [Características](#-características)
+2. [Tecnologías Utilizadas](#-tecnologías-utilizadas)
+3. [Instalación y Configuración](#-instalación-y-configuración)
+4. [Autenticación y Seguridad](#-autenticación-y-seguridad)
+5. [Documentación de Endpoints](#-documentación-de-endpoints)
   
-## 📜 Características
+## 📜 [Características](#-características)
 * CRUD completo para gestionar películas.  
 * Paginación y ordenamiento en la consulta de películas.  
 * Autenticación JWT con sesión y refresh token, con expiración configurable (15 minutos).  
 * Protección de endpoints mediante roles de usuario y administrador.  
 * Arquitectura RESTful que facilita la integración con otras aplicaciones o servicios.  
 
-## 🚀 Tecnologías Utilizadas
+## 🚀 [Tecnologías Utilizadas](#-tecnologías-utilizadas)
 * **Java** 17  
 * **Spring Boot 3**  
 * **Spring Security 6** para autenticación y autorización.  
@@ -19,7 +27,7 @@ autenticación y autorización mediante Spring Security 6.
 * **JWT** (JSON Web Token) para autenticación y autorización de usuarios.  
 * **Maven** para la gestión de dependencias.  
 
-## 📥 Instalación
+## 📥 [Instalación y Configuración](#-instalación-y-configuración)
 **Prerrequisitos**
 * Java 17 o superior  
 * Maven 3.8+  
@@ -51,7 +59,7 @@ mvn spring-boot:run
 
 ```
   
-## 🔑 Autenticación y Seguridad
+## 🔑 [Autenticación y Seguridad](#-autenticación-y-seguridad)
 Este proyecto utiliza JWT para gestionar sesiones de usuario:
 
 * Inicio de sesión: Los usuarios reciben un token JWT y un refresh token.
@@ -63,7 +71,7 @@ Este proyecto utiliza JWT para gestionar sesiones de usuario:
   * Usuario: Acceso a endpoints de lectura de datos.
   * Administrador: Acceso completo, incluyendo creación y eliminación de registros.
 
-## 📖 Documentación de los Endpoints
+## 📖 [Documentación de Endpoints](#-documentación-de-endpoints)
 
 
 
