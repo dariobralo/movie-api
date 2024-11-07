@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "945f29b2-ce8f-46b2-96c4-7732d070204d",
+		"name": "Movie API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32716841"
+	},
+	"item": [
+		{
+			"name": "Movie - endpoints privados",
+			"item": [
+				{
+					"name": "Get Movie By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"{id}"
+							]
+						},
+						"description": "Busca una pelicula por el numero de Id.\n\nRequiere rol de Usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNb3ZpZSBBUEkiLCJzdWIiOiJkYXJvdGUuZ3R4QGdtYWlsLmNvbSIsImlhdCI6MTczMDc1Mjc5MSwiZXhwIjoxNzMwNzUzNjkxLCJqdGkiOiI5N2I0YjQ3Ny0yYWZjLTQxMjEtYTZhOC00NzlhMWViMmJmNmMifQ.bGlACFqSwgKpReMXVJpDf6onPUu1AFohyM3Zfh_JKV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/get-all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"get-all"
+							]
+						},
+						"description": "Lista todos los recursos de la base de datos.\n\nRequiere rol de Usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movies From Page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/movies-page?pageNumber={numeroDePagina}&pageSize={cantidadDeRegistrosPoPagina}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"movies-page"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "{numeroDePagina}"
+								},
+								{
+									"key": "pageSize",
+									"value": "{cantidadDeRegistrosPoPagina}"
+								}
+							]
+						},
+						"description": "Recibe por parametros el numero de página y la cantidad de objetos por página y retorna el listado.\n\nRequiere rol de Usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Movies With Pages and Sort",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/movies-page-and-sort?pageNumber={numeroDePagina}&pageSize=10&sortBy=title&direccion=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"movies-page-and-sort"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "{numeroDePagina}"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "title"
+								},
+								{
+									"key": "direccion",
+									"value": "asc"
+								}
+							]
+						},
+						"description": "Recibe por parámetros el numero de pagina, la cantidad de registros que debe tener la misma, el dato que guiará el ordenamiento y la dirección de este, sido asc (ascendente) y desc (descendente) las opciones disponibles. Ascendente es la opcion por defecto.\n\nRequiere rol de Usuario."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Dario/Desktop/Trabajos/peliculas-api-proyecto/posters/12_monos.jpg"
+								},
+								{
+									"key": "movie",
+									"value": "{\n    \"title\": \"12 Monos\",\n    \"director\": \"Director Ejemplo\",\n    \"movieCast\": [\"Bruce Willi\", \"Actor B\"],\n\"releaseYear\":1995\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/new-movie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"new-movie"
+							]
+						},
+						"description": "Recime un archivo de imagen, y los datos de película a crear a travez del body de la solicitud.\n\nRequiere rol de Administrador."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Movie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "movie",
+									"value": "{\n    \"title\": \"12 Monos\",\n    \"director\": \"Director corregido\",\n    \"movieCast\": [\"Bruce Willi\", \"Actor B\"],\n\"releaseYear\":1995\n}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/update/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"update",
+								"{id}"
+							]
+						},
+						"description": "Recibe el id de la pelicula a modificar en la url, los datos de la película y la imagen de la misma en el body de la solicitud. Solo los datos ingresados seran modificados.\n\nRequiere rol de Administrador."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJNb3ZpZSBBUEkiLCJzdWIiOiJkYXJvdGUuZ3R4QGdtYWlsLmNvbSIsImlhdCI6MTczMDc1Mjc5MSwiZXhwIjoxNzMwNzUzNjkxLCJqdGkiOiI5N2I0YjQ3Ny0yYWZjLTQxMjEtYTZhOC00NzlhMWViMmJmNmMifQ.bGlACFqSwgKpReMXVJpDf6onPUu1AFohyM3Zfh_JKV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/movies/delete/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"delete",
+								"{id}"
+							]
+						},
+						"description": "Recibe el id de la pelicula a eliminar.\n\nRequiere rol de Administrador."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth - endpoints públicos",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"enail.ejemplo@gmail.com\",\r\n    \"username\" : \"user\",\r\n    \"password\" : \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Solicitud de registro. Recibe email en formato válido, nombre de usuario y contraseña."
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"darote.gtx@gmail.com\",\r\n    \"password\" : \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Solicitud para el inicio de sesión. Devuelve un JwtToken de 15 min de duración y un Refresh Token de 60 minutos de validez."
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
+							]
+						},
+						"description": "Ruta para renobar el Jwt token luego de su expiración. Devuelve un nuevo Jwt y un nuevo refresh token, quedando el anterior invalidado."
+					},
+					"response": []
+				},
+				{
+					"name": "Log Out",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"email.ejemplo@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Cierre de sesión a travez del email del usuario. Verifica si tiene un refresh token valido activo y lo elimina ára el cierre de sesión, de no tener este lanza una excepción."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"email.ejemplo@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/resetPassword/verifyEmail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"resetPassword",
+								"verifyEmail"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "darote.gtx@gmail",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Ruta para iniciar la recuperaión de contraseña. Recibe un email válido y envia un código otp de 6 dígitos al email ingresado."
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Otp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"email.ejemplo@gmail.com\",\r\n    \"otp\" : 123456\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/resetPassword/verifyOtp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"resetPassword",
+								"verifyOtp"
+							]
+						},
+						"description": "Recibe el email y el código envidado. De vlidar la identidad del usuario envía un token de 3 minutos de duración para actualizar la contraseña."
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email.ejemplo@gmail.com\",\r\n    \"PasswordResetToken\" : \"\",\r\n    \"newPassword\" : \"\",\r\n    \"repeatNewPassword\" : \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/resetPassword/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"resetPassword",
+								"changePassword"
+							]
+						},
+						"description": "Recibe el email de usuario, el Jwt token con los datos del usuario, una contraseña. Esta debe contener un mínimo de 8 dígitos."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

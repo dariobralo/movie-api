@@ -16,7 +16,7 @@ public class RefreshTokenService {
 
     private final UserRepository userRepository;
     private final RefreshTokenRepository refreshTokenRepository;
-    private final Integer EXPIRATION_REFRESH_TOKEN_TIME = 1000 * 60 * 60;
+    private final Integer EXPIRATION_REFRESH_TOKEN_TIME = 1000 * 60 * 60; //1 hora.
 
     public RefreshTokenService(UserRepository userRepository, RefreshTokenRepository refreshTokenRepository) {
         this.userRepository = userRepository;
