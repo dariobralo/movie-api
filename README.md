@@ -72,10 +72,16 @@ Este proyecto utiliza JWT para gestionar sesiones de usuario:
   * Administrador: Acceso completo, incluyendo creación y eliminación de registros.
 
 ## 📖 [Documentación de Endpoints](#-documentación-de-endpoints)
+### Documentación de API - Colección de Postman
+Para facilitar las pruebas y la interacción con esta API, puedes utilizar la colección de Postman incluida en este repositorio.
 
+Pasos para importar la colección
+1. Debes tener Postman instalado.
+2. Descarga el archivo de la colección con este enlace.
 
+     [Descargar colección de Postman](https://raw.github.com/dariobralo/movie-api/blob/main/postman/Movie%20API.postman_collection.json)
 
-
+3. En Postman, ve a File > Import y selecciona el archivo descargado.
 
 
 
