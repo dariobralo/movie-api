@@ -80,8 +80,10 @@ Pasos para importar la colección
 2. Descarga el archivo de la colección con este enlace.
 
      [Descargar colección de Postman](https://github.com/dariobralo/movie-api/raw/main/postman/Movie-api.postman_collection.json)
+   [Descargar colección de Postman](https://raw.githubusercontent.com/dariobralo/movie-api/main/postman/Movie-api.postman_collection.json)
 
-3. En Postman, ve a File > Import y selecciona el archivo descargado.
+
+4. En Postman, ve a File > Import y selecciona el archivo descargado.
   
   
 ## Contacto del desarrollador
